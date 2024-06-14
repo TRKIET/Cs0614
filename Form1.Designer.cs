@@ -38,9 +38,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(247, 85);
+            label1.Font = new Font("Yu Gothic UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(58, 57);
             label1.Name = "label1";
-            label1.Size = new Size(38, 15);
+            label1.Size = new Size(78, 32);
             label1.TabIndex = 0;
             label1.Text = "label1";
             label1.Click += label1_Click;
@@ -48,9 +49,10 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(181, 30);
+            label2.Font = new Font("Yu Gothic UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(232, 57);
             label2.Name = "label2";
-            label2.Size = new Size(38, 15);
+            label2.Size = new Size(78, 32);
             label2.TabIndex = 1;
             label2.Text = "label2";
             label2.Click += label2_Click;
@@ -58,9 +60,10 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(200, 128);
+            label3.Font = new Font("Yu Gothic UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(139, 208);
             label3.Name = "label3";
-            label3.Size = new Size(38, 15);
+            label3.Size = new Size(78, 32);
             label3.TabIndex = 2;
             label3.Text = "label3";
             label3.Click += label3_Click;
@@ -75,7 +78,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(355, 241);
+            ClientSize = new Size(731, 480);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
