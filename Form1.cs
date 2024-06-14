@@ -101,5 +101,19 @@ namespace Cs0614
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            for(int i = 0 ; i<10 ;i ++ )
+            {
+                MessageBox.Show($"{i}");
+
+                if ( i ==10 ) 
+                {
+                    timer1.Enabled = false;
+                }
+                
+            }
+        }
     }
 }
