@@ -11,12 +11,21 @@ namespace Cs0614
         {
             InitializeComponent();
 
+            for (int i = 0;  i <3 ; i++) 
+            { 
+            
+            vx[i] = random.Next(-10, 11);
+            vy[i] = random.Next(-10, 11);
+            }
+            /*
             vx[0] = random.Next(-10, 11);
             vy[0] = random.Next(-10, 11);
+
             vx[1] = random.Next(-10, 11);
             vy[1] = random.Next(-10, 11);
+
             vx[2] = random.Next(-10, 11);
-            vy[2] = random.Next(-10, 11);
+            vy[2] = random.Next(-10, 11);*/
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -108,7 +117,7 @@ namespace Cs0614
             {
                 MessageBox.Show($"{i}");
 
-                if ( i ==10 ) 
+                if ( i ==9 ) 
                 {
                     timer1.Enabled = false;
                 }
