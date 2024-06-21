@@ -2,26 +2,28 @@ namespace Cs0614
 {
     public partial class Form1 : Form
     {
+        static int ChrMax => 100;
+
         static Random random = new Random();
-        int[] vx = new int[100];
-        int[] vy = new int[100];
-        Label[] labels = new Label[100];//êŠŠm•Û
+        int[] vx = new int[ChrMax];
+        int[] vy = new int[ChrMax];
+        Label[] labels = new Label[ChrMax];//êŠŠm•Û
 
 
         public Form1()
         {
             InitializeComponent();
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < ChrMax; i++)
             {
 
                 labels[i] = new Label();//¶¬
                 labels[i].AutoSize = true;
-                labels[i].Text = "";
+                labels[i].Text = "(*_*)";
                 Controls.Add(labels[i]);
                 labels[i].Font = new Font(
                     "Yu Gothic UI",
-                    24F,
+                    10F,
                     FontStyle.Regular,
                     GraphicsUnit.Point);
 
@@ -30,7 +32,7 @@ namespace Cs0614
             }
 
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < ChrMax; i++)
             {
 
                 vx[i] = random.Next(-10, 11);
@@ -54,7 +56,7 @@ namespace Cs0614
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < ChrMax; i++)
             {
                 labels[i].Left += vx[i];
                 labels[i].Top += vy[i];
