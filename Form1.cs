@@ -3,19 +3,38 @@ namespace Cs0614
     public partial class Form1 : Form
     {
         static Random random = new Random();
-        int[] vx = new int[3];
-        int[] vy = new int[3];
+        int[] vx = new int[100];
+        int[] vy = new int[100];
+        Label[] labels = new Label[100];//èÍèäämï€
 
 
         public Form1()
         {
             InitializeComponent();
 
-            for (int i = 0;  i <3 ; i++) 
-            { 
-            
-            vx[i] = random.Next(-10, 11);
-            vy[i] = random.Next(-10, 11);
+            for (int i = 0; i < 100; i++)
+            {
+
+                labels[i] = new Label();//ê∂ê¨
+                labels[i].AutoSize = true;
+                labels[i].Text = "Åû";
+                Controls.Add(labels[i]);
+                labels[i].Font = new Font(
+                    "Yu Gothic UI",
+                    24F,
+                    FontStyle.Regular,
+                    GraphicsUnit.Point);
+
+                labels[i].Left = random.Next(ClientSize.Width - labels[i].Width);
+                labels[i].Top = random.Next(ClientSize.Height - labels[i].Height);
+            }
+
+
+            for (int i = 0; i < 100; i++)
+            {
+
+                vx[i] = random.Next(-10, 11);
+                vy[i] = random.Next(-10, 11);
             }
             /*
             vx[0] = random.Next(-10, 11);
@@ -35,27 +54,29 @@ namespace Cs0614
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label1.Left += vx[0];
-            label1.Top += vy[0];
-            if (label1.Left < 0)
+            for (int i = 0; i < 100; i++)
             {
-                vx[0] = Math.Abs(vx[0]);
+                labels[i].Left += vx[i];
+                labels[i].Top += vy[i];
+                if (labels[i].Left < 0)
+                {
+                    vx[0] = Math.Abs(vx[i]);
+                }
+                else if (labels[i].Left > (ClientSize.Width - labels[i].Width))
+                {
+                    vx[i] = -Math.Abs(vx[i]);
+                }
+                if (labels[i].Top < 0)
+                {
+                    vy[i] = Math.Abs(vy[i]);
+                }
+                else if (labels[i].Top > (ClientSize.Height - labels[i].Height))
+                {
+                    vy[i] = -Math.Abs(vy[i]);
+                }
             }
-            else if (label1.Left > (ClientSize.Width - label1.Width))
-            {
-                vx[0] = -Math.Abs(vx[0]);
-            }
-            if (label1.Top < 0)
-            {
-                vy[0] = Math.Abs(vy[0]);
-            }
-            else if (label1.Top > ClientSize.Height - label1.Height)
-            {
-                vy[0] = -Math.Abs(vy[0]);
-            }
-
             //
-
+            /*
             label2.Left += vx[1];
             label2.Top += vy[1];
             if (label2.Left < 0)
@@ -96,7 +117,7 @@ namespace Cs0614
             {
                 vy[2] = -Math.Abs(vy[2]);
             }
-
+            */
         }
 
 
@@ -113,16 +134,34 @@ namespace Cs0614
 
         private void button1_Click(object sender, EventArgs e)
         {
-            for(int i = 0 ; i<10 ;i ++ )
+            for (int i = 0; i < 10; i++)
             {
                 MessageBox.Show($"{i}");
 
-                if ( i ==9 ) 
+                if (i == 9)
                 {
                     timer1.Enabled = false;
                 }
-                
+
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int i;
+            for (i = 0; i < 10; i++)
+            {
+                if (i == 2)
+                {
+                    continue;
+                }
+                if(i == 5)
+                { 
+                    break;
+                }
+                MessageBox.Show(i.ToString());
+            }
+            MessageBox.Show($"after{i}");
         }
     }
 }
